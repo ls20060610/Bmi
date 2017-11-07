@@ -14,7 +14,11 @@ public class MainActivity extends AppCompatActivity {
     View.OnClickListener listener = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-
+           new AlertDialog.Builder(MainActivity.this)
+                   .setTitle("xxx")
+                   .setMessage("BMI = 體重除以身高平方")
+                   .setPositiveButton("Ok" , null)
+                   .show(); 
         }
     };
     @Override
