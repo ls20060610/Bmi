@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">bmi</string>
+    <string name="bmi_title">Bmi提示</string>
+    <string name="calculate_bmi">計算Bmi</string>
+    <string name="height">身高(公尺)</string>
+    <string name="info">資訊</string>
+    <string name="ok">確定</string>
+    <string name="weight">體重(公斤)</string>
+    <string name="your_BMI_is">你的Bmi為</string>
+</resources>

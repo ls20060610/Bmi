@@ -5,15 +5,27 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
+    String s = new String("abc");
+    View.OnClickListener listener = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
 
+        }
+    };
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        getResources().getString(R.string.app_name);
+        //"Bmi"
+        Button bhelp = (Button) findViewById(R.id.b_info);
+        bhelp.setOnClickListener(listener);
+
     }
         public void bmi(View view){
           //  System.out.println();
@@ -24,9 +36,9 @@ public class MainActivity extends AppCompatActivity {
             float height = Float.parseFloat(edheight.getText().toString());
             float bmi = weight / (height * height);
             new AlertDialog.Builder(this)
-                    .setMessage("Your BMI is" + bmi)
-                    .setTitle("My Title")
-                    .setPositiveButton("OK",null)
+                    .setMessage(getString(R.string.your_BMI_is) + bmi)
+                    .setTitle(R.string.bmi_title)
+                    .setPositiveButton(R.string.ok,null)
                     .show();
 
 
