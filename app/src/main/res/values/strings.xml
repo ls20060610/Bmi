@@ -7,4 +7,6 @@
     <string name="calculate_bmi">CALCULATE BMI</string>
     <string name="info">INFO</string>
     <string name="ok">OK</string>
+    <string name="extra_bmi">EXTRA_BMI</string>
+    <string name="extra_bmi2">EXTRA_BMI</string>
 </resources>

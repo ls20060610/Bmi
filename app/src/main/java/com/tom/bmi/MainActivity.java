@@ -1,5 +1,6 @@
 package com.tom.bmi;
 
+import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,6 +11,8 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
+    private EditText edweight;
+    private EditText edheight;
     String s = new String("abc");
     View.OnClickListener listener = new View.OnClickListener() {
         @Override
@@ -21,24 +24,77 @@ public class MainActivity extends AppCompatActivity {
                    .show(); 
         }
     };
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Log.d("Mainactivity" , "onCreate");
+        findviews();
         getResources().getString(R.string.app_name);
         //"Bmi"
-        Button bhelp = (Button) findViewById(R.id.b_info);
-        bhelp.setOnClickListener(listener);
+
+
 
     }
-        public void bmi(View view){
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.d("Mainactivity" , "onStart");
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.d("Mainactivity" , "onStop");
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.d("Mainactivity" , "onDestroy");
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.d("Mainactivity" , "onPause");
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d("Mainactivity" , "onResume");
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        Log.d("Mainactivity" , "onRestart");
+    }
+
+    private Button findviews() {
+        edweight = (EditText) findViewById(R.id.ed_weight);
+        edheight = (EditText) findViewById(R.id.ed_height);
+        return (Button) findViewById(R.id.b_info);
+    }
+
+
+    public void bmi(View view){
           //  System.out.println();
             Log.d("MainActivity", "testing bmi method");
-            EditText edweight = (EditText) findViewById(R.id.ed_weight);
-            EditText edheight = (EditText) findViewById(R.id.ed_height);
+
             float weight = Float.parseFloat(edweight.getText().toString());
             float height = Float.parseFloat(edheight.getText().toString());
             float bmi = weight / (height * height);
+
+            Intent intent =  new Intent(this, ResultActivity.class);
+            intent.putExtra("EXTRA_BMI" , bmi);
+            startActivity(intent);
+
+
 
             if (bmi < 20){
                 new AlertDialog.Builder(this)
